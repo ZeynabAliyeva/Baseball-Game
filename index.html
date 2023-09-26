@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Baseball game</title>
+  </head>
+  <body>
+    <script>
+      const options = ["1","C"];
+
+      const functionOption = (options) => {
+        const newArray = [];
+        for (const option of options) {
+          if (option === "C") {
+            newArray.pop();
+          } else if (option === "D") {
+            newArray.push(newArray[newArray.length - 1] * 2);
+          } else if (option === "+") {
+            newArray.push(
+              newArray[newArray.length - 1] + newArray[newArray.length - 2]
+            );
+          } else {
+            newArray.push(parseInt(option));
+          }
+        }
+        return newArray.reduce((a, b) => a + b, 0);
+      };
+      const result = functionOption(options);
+      console.log(result);
+    </script>
+  </body>
+</html>
